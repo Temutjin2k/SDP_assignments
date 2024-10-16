@@ -1,4 +1,4 @@
-package assignment2;
+package assignment1.assignment2;
 
 public class EmailNotification implements Notification {
     @Override

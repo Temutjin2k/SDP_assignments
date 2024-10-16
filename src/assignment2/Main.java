@@ -1,31 +1,52 @@
 package assignment2;
 
-import java.util.List;
+abstract class Document {
+    public abstract void createDocument();
+}
 
-public class NotificationSystem {
+class PDFDocument extends Document {
+    @Override
+    public void createDocument() {
+        System.out.println("PDF Document created.");
+    }
+}
+
+class WordDocument extends Document {
+    @Override
+    public void createDocument() {
+        System.out.println("Word Document created.");
+    }
+}
+
+// Abstract factory class for creating different documents
+abstract class DocumentFactory {
+    public abstract Document createDocument();
+}
+
+class PDFDocumentFactory extends DocumentFactory {
+    @Override
+    public Document createDocument() {
+        return new PDFDocument();
+    }
+}
+
+class WordDocumentFactory extends DocumentFactory {
+    @Override
+    public Document createDocument() {
+        return new WordDocument();
+    }
+}
+
+public class Main {
     public static void main(String[] args) {
-        Notification smsNotification = new SMSNotification();
-        Notification emailNotification = new EmailNotification();
-        Notification pushNotification = new PushNotification();
+        // Creating a PDF document.
+        DocumentFactory pdfFactory = new PDFDocumentFactory();
+        Document pdfDoc = pdfFactory.createDocument();
+        pdfDoc.createDocument();
 
-        smsNotification.send("s", "s");
-        NotificationManager smsManager = new NotificationManager(smsNotification);
-        NotificationManager emailManager = new NotificationManager(emailNotification);
-        NotificationManager pushManager = new NotificationManager(pushNotification);
-
-        // Send individual notifications
-        smsManager.sendNotification("Your SMS code is 123456", "123-456-7890");
-        emailManager.sendNotification("Welcome to our service!", "user@example.com");
-        pushManager.sendNotification("You have a new message!", "PushUser123");
-
-        // Send bulk notifications
-        List<String> smsRecipients = List.of("123-456-7890", "987-654-3210");
-        smsManager.sendBulkNotification("Bulk SMS: This is a notification!", smsRecipients);
-
-        List<String> emailRecipients = List.of("user1@example.com", "user2@example.com");
-        emailManager.sendBulkNotification("Bulk Email: This is a notification!", emailRecipients);
-
-        List<String> pushRecipients = List.of("PushUser123", "PushUser456");
-        pushManager.sendBulkNotification("Bulk Push: This is a notification!", pushRecipients);
+        // Creating a Word document.
+        DocumentFactory wordFactory = new WordDocumentFactory();
+        Document wordDoc = wordFactory.createDocument();
+        wordDoc.createDocument();
     }
 }

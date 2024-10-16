@@ -1,17 +1,17 @@
-package assignment4;
+package assignment2.assignment4;
 
-class DarkThemeBuilder implements ThemeBuilder {
+class LightThemeBuilder implements ThemeBuilder {
     private Button button;
     private Checkbox checkbox;
 
     @Override
     public void buildButton() {
-        button = new Button("black", "Dark");
+        button = new Button("white", "Light");
     }
 
     @Override
     public void buildCheckbox() {
-        checkbox = new Checkbox("black", "Dark");
+        checkbox = new Checkbox("white", "Light");
     }
 
     @Override

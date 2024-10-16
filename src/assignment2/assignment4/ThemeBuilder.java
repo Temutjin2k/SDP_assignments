@@ -1,4 +1,4 @@
-package assignment4;
+package assignment2.assignment4;
 
 interface ThemeBuilder {
     void buildButton();

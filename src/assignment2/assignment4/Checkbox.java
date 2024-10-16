@@ -1,4 +1,4 @@
-package assignment4;
+package assignment2.assignment4;
 
 class Checkbox {
     private String color;
