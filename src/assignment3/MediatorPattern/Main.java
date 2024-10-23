@@ -66,16 +66,16 @@ public class Main {
     public static void main(String[] args) {
         ChatMediator chatMediator = new ChatRoom();
 
-        User user1 = new ConcreteUser(chatMediator, "Alice");
-        User user2 = new ConcreteUser(chatMediator, "Bob");
-        User user3 = new ConcreteUser(chatMediator, "Charlie");
+        User user1 = new ConcreteUser(chatMediator, "Temutjin");
+        User user2 = new ConcreteUser(chatMediator, "Erasyl");
+        User user3 = new ConcreteUser(chatMediator, "Bekzat");
 
         chatMediator.addUser(user1);
         chatMediator.addUser(user2);
         chatMediator.addUser(user3);
 
         user1.send("Hello, everyone!");
-        user2.send("Hey, Alice!");
+        user2.send("Hey, Temutjin!");
         user3.send("Hi, all!");
     }
 }
